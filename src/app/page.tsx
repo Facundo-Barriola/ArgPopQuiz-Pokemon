@@ -1,12 +1,11 @@
 import PokemonCard from "@/components/pokemon-card";
+import { GetServerSideProps } from 'next';
+import { getPokemonById } from "@/utils/pokeAPI";
+import { PokemonData } from "@/types/pokemon";
 
-export default function Home() {
-  const pokemon = {
-    id: 1,
-    name: 'Bulbasaur',
-    sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
-    type: 'grass'
-  };
+export default function Home( pokemon : PokemonData) {
+  console.log('Pokemon:', pokemon);
+
   return (
     <div className="container">
     <section className="py-24">
@@ -16,7 +15,6 @@ export default function Home() {
         </h1>
       </div>
     </section>
-    <PokemonCard pokemon={pokemon}/>
     </div>
   );
 }
